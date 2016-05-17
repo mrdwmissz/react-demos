@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+	var MyTitle = React.createClass({
+		// 设置title默认值
+		getDefaultProps: function(){
+			var props = {
+				title: 'wth'
+			};
+
+			return props;
+			
+		},
+		
+		// 验证title属性是必须的，并且必须是字符串
+		propTypes: {
+			title: React.PropTypes.string.isRequired,
+		},
+
+		render: function() {
+			return <h1>{this.props.title}</h1>;
+		}
+	});
+	
+	ReactDOM.render(
+		<MyTitle>Hello World!</MyTitle>, 
+		document.getElementById('example')
+	)
+</script>
+</body>
+</html>
